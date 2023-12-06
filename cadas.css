@@ -1,0 +1,149 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    background-color: #333333;
+   
+}
+
+.conteudo{
+    margin-top: 53px;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    background-color:#F29F05;
+    width: 450px;
+    height: 533px;
+    padding: 33px 20px;
+    margin: 0 20px;
+}
+
+a{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(32, 30, 30);
+    text-decoration: none;
+}
+
+
+.parte1{
+    display: flex;
+    flex-direction: column;
+    padding:10px 0;
+}
+
+.parte2{
+    display: flex;
+    flex-direction: column;
+    padding:10px 0;
+}
+
+.parte1 input{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px; 
+    border: 1px rgb(255, 253, 253) solid;
+}
+
+.parte2 input{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px; 
+    border: 1px rgb(255, 255, 255) solid;
+   
+}
+
+
+.login h2{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 50px;
+    opacity: 0.8;
+    color: rgb(14, 12, 12);
+}
+
+.login label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(14, 13, 13);
+}
+
+.partebaixo .submit{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 40px;
+    border:none;
+    color:#e1e1e1;
+    margin: 10px 0;
+}
+
+
+.elementos{
+    margin: 13px;
+}
+
+.titulos{
+    
+    display: flex;
+    justify-content: space-around;
+    margin-top: 13px;
+    margin-bottom: 23px;
+}
+
+.partebaixo button{ 
+    width: 133px;
+    padding: 7px;
+    border-radius: 7px;
+    border: none;
+    background-color: #F21905;
+    margin-top: 9px;
+
+}
+
+.partebaixo a{
+    color: white;
+}
+
+.partebaixo button:hover{
+    background-color: white; 
+
+}
+
+.partebaixo a:hover{
+    color: #F21905;
+}
+
+.titulos a:hover{
+    color: #05DBF2;
+}
+
+
+
+.imagem{
+    width: 105px;
+    height: 105px;
+}
+
+.imagem-1{
+    display: flex;
+    position: absolute;
+    margin-bottom: 633px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+
+.data{
+   background-color: #F29F05;
+   border: 1px #ffffff solid;
+   color: #6805F2;
+   width: 153px;
+   padding: 3px;
+   border-radius: 5px;
+}
