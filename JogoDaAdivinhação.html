@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+<style>
+    *{
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(240, 191, 66);
+}
+
+[id='1']{
+    height: 100%;
+    width: 120px;
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+[id='2']{
+    height: 100%;
+    width: 100%;
+    background-color:rgb(83, 83, 83);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+[id='3']{
+    height: 100%;
+    width: 75%;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+    
+
+
+[class="jogo"]{
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+[class="MenuButton"]{
+    height: 120px;
+    width: 120px;
+}
+[class="logo"]{
+    height: 180px;
+    width: 200px;
+}
+[class="button"]{
+    background-color: transparent;
+    border: 0;
+    padding: 20px;
+}
+[id="perfil"]{
+    display: none;
+}
+
+[id="cabeçário"]{
+    height: 230px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+[id="corpo"]{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.menu{
+    display: none;
+}
+#nav-button:checked ~ .menu{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;        
+    flex-direction: column;
+    transition: height 1s;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        #corpo {
+            font-size: 35pt;
+            color: rgb(170, 255, 0);
+            font-family: 'Dancing Script', cursive;
+            background-image: url("./inverno.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        section {
+            box-shadow: 2px 2px 4px black;
+            background-color: rgba(255, 255, 255, 0.20);
+            text-align: center;
+            width: 500px;
+            margin: auto;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 7px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0px;
+            left: 600px;
+        }
+
+@media screen and (min-width: 500px) {
+    
+    [id="cabeçário"]{
+        height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    [id="corpo"]{
+        display: flex;
+        height: 100%;
+    
+    }
+    [class="MenuButton"]{
+        height: 50px;
+        width: 50px;
+    }
+    [class="logo"]{
+        height: 70px;
+        width: 70px;
+    }
+    [class="jogo"]{
+        background-color: red;
+        width: 130px;
+        height: 10px;
+        border-radius: 20px;
+    }
+    [id='3']{
+        height: 100%;
+        width: 100%;
+        background-color: orange;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+               
+    }
+   
+}
+a{display: flex; flex-direction: column; color: black;}
+[id="search-bar"] {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+        [id="search-input"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        [id="search-button"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+    .pirata{ height: 100%;
+    width: 100%;
+    background-color:rgb(83, 83, 83);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+</style>
+</head>
+<body>
+    <div id="cabeçário">
+        <div id="3">
+            <button class="button">
+                <a href="Dashboard.html"><img src="logo.png" class="logo" alt="Logo"></a>
+
+            </button>
+            
+            <button class="button">
+                <a href="Informações.html"><img src="InfoIcon.png" class="MenuButton" alt="Info">Informações</a>
+            </button>
+            
+            <button class="button">
+                <a href="contato.html"><img src="ContatoIcon.png" class="MenuButton" alt="Contato">Contato</a>
+            </button>
+
+            <div id="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar por nome do jogo">
+                <button id="search-button" class="button" onclick="highlightSearch()">
+                    Pesquisar
+                </button>
+            </div>
+        
+            <button class="button" onclick="togglePirata()">
+                <a href="#"> <img src="FiltroIcon2.png" class="MenuButton" alt="Filtro"> Filtro</a>
+            </button>
+
+            <button class="button">
+                <a href="perfil.html"><img src="PerfilIcon.png" class="MenuButton" alt="Perfil"> Perfil</a>
+            </button>
+        </div>
+    </div>
+    <div id="corpo">
+        
+        <header>
+            <h1>Jogo de adivinhação</h1>
+        </header>
+    
+        <section>
+            <div>Tente adivinhar um número entre 0 e 200</div>
+            Entrada do número: <input type="number" name="num" id="num">
+            <button class="btn" onclick="jogoadivinhação.chutar()" title="Executa um chute">Chutar</button>
+            <div id="resultado"></div>
+            <button class="btn" onclick="jogoadivinhação.start()" title="Gera um número aleatório.">Reiniciar</button>
+        </section>
+
+        </div>
+
+
+        
+    
+    <script>
+        function highlightSearch() {
+        var searchBar = document.getElementById('search-input');
+        var searchTerm = searchBar.value.toLowerCase();
+
+        // Elementos com a classe 'jogo'
+        var jogoElements = document.querySelectorAll('.jogo');
+        jogoElements.forEach(function(jogoElement) {
+            highlightElement(jogoElement, searchTerm);
+        });
+    }
+
+    function highlightElement(element, searchTerm) {
+        var textContent = element.textContent.toLowerCase();
+        var originalHTML = element.getAttribute('data-original-html');
+
+        if (!originalHTML) {
+            // Salva o HTML original na primeira execução
+            element.setAttribute('data-original-html', element.innerHTML);
+            originalHTML = element.innerHTML;
+        }
+
+        if (searchTerm !== '') {
+            // Remove destaque anterior antes de aplicar o novo destaque
+            var nonHighlightedHTML = originalHTML.replace(/<span class="highlight">([^<]+)<\/span>/gi, '$1');
+            element.innerHTML = nonHighlightedHTML;
+
+            // Substitui o termo de pesquisa pela versão destacada no HTML
+            var highlightedHTML = originalHTML.replace(
+                new RegExp('(?<!\\w)' + searchTerm + '(?!\\w)', 'gi'),
+                function(match) {
+                    return '<span class="highlight">' + match + '</span>';
+                }
+            );
+
+            element.innerHTML = highlightedHTML;
+        } else {
+            // Se o termo de pesquisa estiver vazio, redefina para o texto original
+            element.innerHTML = originalHTML;
+        }
+    }
+
+    function togglePirata() {
+        var pirataElements = document.querySelectorAll('.pirata');
+
+        pirataElements.forEach(function(pirataElement) {
+            // Verifica se a classe pirata está visível
+            var isPirataVisible = window.getComputedStyle(pirataElement).display !== 'none';
+
+            // Define a visibilidade da classe pirata com base na verificação acima
+            pirataElement.style.display = isPirataVisible ? 'none' : 'flex';
+        });
+    }
+    var a
+        var n = window.document.getElementById('num')
+        var r = window.document.getElementById('resultado')
+        var tentativas = 0;
+
+        const jogoadivinhação = {
+            start() {
+                a = Math.round(200 * Math.random())
+                r.innerHTML = ''
+                tentativas = 0;
+            },
+
+            chutar() {
+                tentativas++;
+                num1 = Number(n.value)
+
+                if (num1 == a) {
+                    r.innerHTML = `PARABÉNS! Você acertou em ${tentativas} tentativa(s).`;
+                } else if (num1 < a) {
+                    r.innerHTML = 'Tente chutar um número maior.'
+                } else {
+                    r.innerHTML = 'Tente chutar um número menor.'
+                }
+            },
+        }
+        jogoadivinhação.start();
+    </script>
+    
+</body>
+</html>

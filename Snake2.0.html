@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(240, 191, 66);
+}
+
+[id='1']{
+    height: 100%;
+    width: 120px;
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+[id='2']{
+    height: 100%;
+    width: 100%;
+    background-color:rgb(83, 83, 83);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+[id='3']{
+    height: 100%;
+    width: 75%;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+    
+
+
+[class="jogo"]{
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+[class="MenuButton"]{
+    height: 120px;
+    width: 120px;
+}
+[class="logo"]{
+    height: 180px;
+    width: 200px;
+}
+[class="button"]{
+    background-color: transparent;
+    border: 0;
+    padding: 20px;
+}
+[id="perfil"]{
+    display: none;
+}
+
+[id="cabeçário"]{
+    height: 230px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+[id="corpo"]{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.menu{
+    display: none;
+}
+#nav-button:checked ~ .menu{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;        
+    flex-direction: column;
+    transition: height 1s;
+}
+@media screen and (min-width: 500px) {
+    
+    [id="cabeçário"]{
+        height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    [id="corpo"]{
+        display: flex;
+        height: 100%;
+    
+    }
+    [class="MenuButton"]{
+        height: 50px;
+        width: 50px;
+    }
+    [class="logo"]{
+        height: 70px;
+        width: 70px;
+    }
+    [class="jogo"]{
+        background-color: red;
+        width: 130px;
+        height: 10px;
+        border-radius: 20px;
+    }
+    [id='3']{
+        height: 100%;
+        width: 100%;
+        background-color: orange;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+               
+    }
+   
+    #corpo {
+        background-color: #191919;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+    }
+    
+    canvas {
+        background-color: #111;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .score {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        font-size: 1.8rem;
+    }
+    
+    .score--value {
+        font-weight: 700;
+        font-size: 4.5rem;
+        display: block;
+        margin-top: -10px;
+    }
+    
+    .menu-screen {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+    }
+    
+    .game-over {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+    
+    .final-score {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    
+    .btn-play {
+        border: none;
+        border-radius: 100px;
+        padding: 10px 15px 10px 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+}
+a{display: flex; flex-direction: column; color: black;}
+[id="search-bar"] {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+        [id="search-input"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        [id="search-button"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+    .pirata{ height: 100%;
+    width: 100%;
+    background-color:rgb(83, 83, 83);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+</style>
+</head>
+<body>
+    <div id="cabeçário">
+        <div id="3">
+            <button class="button">
+                <a href="Dashboard.html"><img src="logo.png" class="logo" alt="Logo"></a>
+
+            </button>
+            
+            <button class="button">
+                <a href="Informações.html"><img src="InfoIcon.png" class="MenuButton" alt="Info">Informações</a>
+            </button>
+            
+            <button class="button">
+                <a href="contato.html"><img src="ContatoIcon.png" class="MenuButton" alt="Contato">Contato</a>
+            </button>
+
+            <div id="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar por nome do jogo">
+                <button id="search-button" class="button" onclick="highlightSearch()">
+                    Pesquisar
+                </button>
+            </div>
+        
+            <button class="button" onclick="togglePirata()">
+                <a href="#"> <img src="FiltroIcon2.png" class="MenuButton" alt="Filtro"> Filtro</a>
+            </button>
+
+            <button class="button">
+                <a href="perfil.html"><img src="PerfilIcon.png" class="MenuButton" alt="Perfil"> Perfil</a>
+            </button>
+        </div>
+    </div>
+    <div id="corpo">
+        
+        <div class="score">Pontuação: <span class="score--value">00</span></div>
+
+    <div class="menu-screen">
+        <span class="game-over">game over</span>
+        <span class="final-score">Pontuação <span>00</span></span>
+
+        <button class="btn-play">
+            <span class="material-symbols-outlined">
+                play_circle
+            </span>
+            
+            Jogar novamente
+        </button>
+    </div>
+
+    <canvas width="450" height="450"></canvas>
+
+        </div>
+
+
+        
+    
+    <script>
+        function highlightSearch() {
+        var searchBar = document.getElementById('search-input');
+        var searchTerm = searchBar.value.toLowerCase();
+
+        // Elementos com a classe 'jogo'
+        var jogoElements = document.querySelectorAll('.jogo');
+        jogoElements.forEach(function(jogoElement) {
+            highlightElement(jogoElement, searchTerm);
+        });
+    }
+
+    function highlightElement(element, searchTerm) {
+        var textContent = element.textContent.toLowerCase();
+        var originalHTML = element.getAttribute('data-original-html');
+
+        if (!originalHTML) {
+            // Salva o HTML original na primeira execução
+            element.setAttribute('data-original-html', element.innerHTML);
+            originalHTML = element.innerHTML;
+        }
+
+        if (searchTerm !== '') {
+            // Remove destaque anterior antes de aplicar o novo destaque
+            var nonHighlightedHTML = originalHTML.replace(/<span class="highlight">([^<]+)<\/span>/gi, '$1');
+            element.innerHTML = nonHighlightedHTML;
+
+            // Substitui o termo de pesquisa pela versão destacada no HTML
+            var highlightedHTML = originalHTML.replace(
+                new RegExp('(?<!\\w)' + searchTerm + '(?!\\w)', 'gi'),
+                function(match) {
+                    return '<span class="highlight">' + match + '</span>';
+                }
+            );
+
+            element.innerHTML = highlightedHTML;
+        } else {
+            // Se o termo de pesquisa estiver vazio, redefina para o texto original
+            element.innerHTML = originalHTML;
+        }
+    }
+
+    function togglePirata() {
+        var pirataElements = document.querySelectorAll('.pirata');
+
+        pirataElements.forEach(function(pirataElement) {
+            // Verifica se a classe pirata está visível
+            var isPirataVisible = window.getComputedStyle(pirataElement).display !== 'none';
+
+            // Define a visibilidade da classe pirata com base na verificação acima
+            pirataElement.style.display = isPirataVisible ? 'none' : 'flex';
+        });
+    }
+    const canvas = document.querySelector("canvas")
+        const ctx = canvas.getContext("2d")
+        
+        const score = document.querySelector(".score--value")
+        const finalScore = document.querySelector(".final-score > span")
+        const menu = document.querySelector(".menu-screen")
+        const buttonPlay = document.querySelector(".btn-play")
+        
+        const audio = new Audio("../assets/audio.mp3")
+        
+        const size = 30
+        
+        const initialPosition = { x: 270, y: 240 }
+        
+        let snake = [initialPosition]
+        
+        const incrementScore = () => {
+            score.innerText = +score.innerText + 10
+        }
+        
+        const randomNumber = (min, max) => {
+            return Math.round(Math.random() * (max - min) + min)
+        }
+        
+        const randomPosition = () => {
+            const number = randomNumber(0, canvas.width - size)
+            return Math.round(number / 30) * 30
+        }
+        
+        const randomColor = () => {
+            const red = randomNumber(0, 255)
+            const green = randomNumber(0, 255)
+            const blue = randomNumber(0, 255)
+        
+            return `rgb(${red}, ${green}, ${blue})`
+        }
+        
+        const food = {
+            x: randomPosition(),
+            y: randomPosition(),
+            color: randomColor()
+        }
+        
+        let direction, loopId
+        
+        const drawFood = () => {
+            const { x, y, color } = food
+        
+            ctx.shadowColor = color
+            ctx.shadowBlur = 6
+            ctx.fillStyle = color
+            ctx.fillRect(x, y, size, size)
+            ctx.shadowBlur = 0
+        }
+        
+        const drawSnake = () => {
+            ctx.fillStyle = "#ddd"
+        
+            snake.forEach((position, index) => {
+                if (index == snake.length - 1) {
+                    ctx.fillStyle = "white"
+                }
+        
+                ctx.fillRect(position.x, position.y, size, size)
+            })
+        }
+        
+        const moveSnake = () => {
+            if (!direction) return
+        
+            const head = snake[snake.length - 1]
+        
+            if (direction == "right") {
+                snake.push({ x: head.x + size, y: head.y })
+            }
+        
+            if (direction == "left") {
+                snake.push({ x: head.x - size, y: head.y })
+            }
+        
+            if (direction == "down") {
+                snake.push({ x: head.x, y: head.y + size })
+            }
+        
+            if (direction == "up") {
+                snake.push({ x: head.x, y: head.y - size })
+            }
+        
+            snake.shift()
+        }
+        
+        const drawGrid = () => {
+            ctx.lineWidth = 1
+            ctx.strokeStyle = "#191919"
+        
+            for (let i = 30; i < canvas.width; i += 30) {
+                ctx.beginPath()
+                ctx.lineTo(i, 0)
+                ctx.lineTo(i, 600)
+                ctx.stroke()
+        
+                ctx.beginPath()
+                ctx.lineTo(0, i)
+                ctx.lineTo(600, i)
+                ctx.stroke()
+            }
+        }
+        
+        const chackEat = () => {
+            const head = snake[snake.length - 1]
+        
+            if (head.x == food.x && head.y == food.y) {
+                incrementScore()
+                snake.push(head)
+                audio.play()
+        
+                let x = randomPosition()
+                let y = randomPosition()
+        
+                while (snake.find((position) => position.x == x && position.y == y)) {
+                    x = randomPosition()
+                    y = randomPosition()
+                }
+        
+                food.x = x
+                food.y = y
+                food.color = randomColor()
+            }
+        }
+        
+        const checkCollision = () => {
+            const head = snake[snake.length - 1]
+            const canvasLimit = canvas.width - size
+            const neckIndex = snake.length - 2
+        
+            const wallCollision =
+                head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+        
+            const selfCollision = snake.find((position, index) => {
+                return index < neckIndex && position.x == head.x && position.y == head.y
+            })
+        
+            if (wallCollision || selfCollision) {
+                gameOver()
+            }
+        }
+        
+        const gameOver = () => {
+            direction = undefined
+        
+            menu.style.display = "flex"
+            finalScore.innerText = score.innerText
+            canvas.style.filter = "blur(2px)"
+        }
+        
+        const gameLoop = () => {
+            clearInterval(loopId)
+        
+            ctx.clearRect(0, 0, 600, 600)
+            drawGrid()
+            drawFood()
+            moveSnake()
+            drawSnake()
+            chackEat()
+            checkCollision()
+        
+            loopId = setTimeout(() => {
+                gameLoop()
+            }, 300)
+        }
+        
+        gameLoop()
+        
+        document.addEventListener("keydown", ({ key }) => {
+            if (key == "ArrowRight" && direction != "left") {
+                direction = "right"
+            }
+        
+            if (key == "ArrowLeft" && direction != "right") {
+                direction = "left"
+            }
+        
+            if (key == "ArrowDown" && direction != "up") {
+                direction = "down"
+            }
+        
+            if (key == "ArrowUp" && direction != "down") {
+                direction = "up"
+            }
+        })
+        
+        buttonPlay.addEventListener("click", () => {
+            score.innerText = "00"
+            menu.style.display = "none"
+            canvas.style.filter = "none"
+        
+            snake = [initialPosition]
+        })
+    </script>
+    
+</body>
+</html>
