@@ -15,8 +15,8 @@
         <div class="login">
             <div class="elementos">
                 <div class="titulos">
-                    <a href="#">ENTRAR</a>
-                    <a href="#">CADASTRAR-SE</a>
+                    <a onclick="Login()">ENTRAR</a>
+                    <p href="#">CADASTRAR-SE</p>
                 </div>
                 <div class="parte1">
                     <label for="usuario">Nome:</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="primeira-parte">
                     <form>
-                        <div>
+                        <div class="primeira-parte1">
                           <label for="diaa">Nascimento:</label>
                           <input type="date" id="diaa" name="diaa" class="data"/>
                         </div>
@@ -43,12 +43,24 @@
                     <input type="text" class="usuario" autocamplete ="off">
                 </div>
                 <div class="partebaixo">
-                    <button><a href="#">Concluir</a></button>
-                    <button><a href="#">Cancelar</a></button>
-                    <button><a href="#">Tenho Cadastro</a></button>
+                    <button><a href="#">Cadastrar</a></button>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let Nome=[];
+        let Sobrenome=[];
+        let Data=[];
+        let Email=[];
+        let Senha=[];
+        function Login(){
+            location.replace("login.html");
+        }
+        function Cadastrar(){
+            //pega os valores dos inputs e coloca nas listas ou dicionário
+            
+        }
+    </script>
 </body>
 </html>

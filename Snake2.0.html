@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>HEVAM GAMES</title>
 <style>
     * {
         margin: 0;
@@ -224,14 +224,7 @@ a{display: flex; flex-direction: column; color: black;}
         background-color: yellow;
         font-weight: bold;
     }
-    .pirata{ height: 100%;
-    width: 100%;
-    background-color:rgb(83, 83, 83);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+    
 
 </style>
 </head>
@@ -258,9 +251,7 @@ a{display: flex; flex-direction: column; color: black;}
                 </button>
             </div>
         
-            <button class="button" onclick="togglePirata()">
-                <a href="#"> <img src="FiltroIcon2.png" class="MenuButton" alt="Filtro"> Filtro</a>
-            </button>
+            
 
             <button class="button">
                 <a href="perfil.html"><img src="PerfilIcon.png" class="MenuButton" alt="Perfil"> Perfil</a>
@@ -333,17 +324,7 @@ a{display: flex; flex-direction: column; color: black;}
         }
     }
 
-    function togglePirata() {
-        var pirataElements = document.querySelectorAll('.pirata');
-
-        pirataElements.forEach(function(pirataElement) {
-            // Verifica se a classe pirata está visível
-            var isPirataVisible = window.getComputedStyle(pirataElement).display !== 'none';
-
-            // Define a visibilidade da classe pirata com base na verificação acima
-            pirataElement.style.display = isPirataVisible ? 'none' : 'flex';
-        });
-    }
+    
     const canvas = document.querySelector("canvas")
         const ctx = canvas.getContext("2d")
         

@@ -14,6 +14,10 @@
         </div>
         <div class="login">
             <div class="elementos">
+                <div class="titulos">
+                    <p href="#">ENTRAR</p>
+                    <a onclick="Cadastro()">CADASTRAR-SE</a>
+                </div>
                 <div class="parte1">
                     <label id = "ganbiarra" for="usuario"></label>
                     <label for="usuario">Email:</label>
@@ -26,12 +30,21 @@
                 <div class="primeira-parte">
                 </div>
                 <div class="partebaixo">
-                    <button>
-                        <a href="#">ENTRAR</a>
+                    <button onclick="Logar()">
+                        <a>ENTRAR</a>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function Cadastro(){
+            location.replace("Cadastro.html");
+        }
+        function Logar(){
+            //Vai pegar os valores desses inputs e comparar com os valores da lista ou dicionário e mandar pra tela do dashboard
+            location.replace("Dashboard.html")
+        }
+    </script>
 </body>
 </html>

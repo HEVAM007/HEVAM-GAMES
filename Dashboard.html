@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>HEVAM GAMES</title>
 <style>
     *{
     margin: 0;
@@ -50,7 +50,7 @@ body{
     width: 400px;
     height: 400px;
     border-radius: 20px;
-}
+} 
 [class="MenuButton"]{
     height: 120px;
     width: 120px;
@@ -159,15 +159,9 @@ a{display: flex; flex-direction: column; color: black;}
         background-color: yellow;
         font-weight: bold;
     }
-    .pirata{ height: 100%;
-    width: 100%;
-    background-color:rgb(83, 83, 83);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+
 .imagens{border-radius: 20px; width: 100px;  height: 100px;}
+
 
 </style>
 </head>
@@ -195,9 +189,6 @@ a{display: flex; flex-direction: column; color: black;}
                 <a href="contato.html"><img src="ContatoIcon.png" class="MenuButton" alt="Contato">Contato</a>
             </button>
         
-            <button class="button" onclick="togglePirata()">
-                <a href="#"> <img src="FiltroIcon2.png" class="MenuButton" alt="Filtro"> Filtro</a>
-            </button>
 
             <button class="button">
                 <a href="perfil.html"><img src="PerfilIcon.png" class="MenuButton" alt="Perfil"> Perfil</a>
@@ -213,35 +204,7 @@ a{display: flex; flex-direction: column; color: black;}
             <div class="jogo"><a href="JogoDaAdivinhação.html"><img src="número.png" class="imagens">Adivinhação</a></div>
             <div class="jogo"><a href="Snake2.0.html"><img src="snake.png" class="imagens">Snake</a></div>
         </div>
-        <div class="pirata">
-            <div class="jogo"> <a href="sapo"></a></div>
-            <div class="jogo"><a href="sapo grnade"></a></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-        </div> 
         
-        <div class="pirata">
-            <div class="jogo"> <a href="sapo"></a></div>
-            <div class="jogo"><a href="sapo grnade"></a></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-        </div>
-
-        <div class="pirata">
-            <div class="jogo"> <a href="sapo"></a></div>
-            <div class="jogo"><a href="sapo grande"></a></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-            <div class="jogo"></div>
-        </div>
-
-        </div>
-
-
-        
-    
     <script>
         function highlightSearch() {
         var searchBar = document.getElementById('search-input');
@@ -283,18 +246,7 @@ a{display: flex; flex-direction: column; color: black;}
             element.innerHTML = originalHTML;
         }
     }
-
-    function togglePirata() {
-        var pirataElements = document.querySelectorAll('.pirata');
-
-        pirataElements.forEach(function(pirataElement) {
-            // Verifica se a classe pirata está visível
-            var isPirataVisible = window.getComputedStyle(pirataElement).display !== 'none';
-
-            // Define a visibilidade da classe pirata com base na verificação acima
-            pirataElement.style.display = isPirataVisible ? 'none' : 'flex';
-        });
-    }
+  
     </script>
     
 </body>
