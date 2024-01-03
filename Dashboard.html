@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>HEVAM GAMES</title>
+    <title>home</title>
 <style>
     *{
     margin: 0;
@@ -22,15 +22,7 @@ body{
     flex-direction: column;
     align-items: center;
 
-}
-[id='2']{
-    height: 100%;
-    width: 100%;
-    background-color:rgb(83, 83, 83);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+
 }
 [id='3']{
     height: 100%;
@@ -42,15 +34,7 @@ body{
     
 }
 
-    
 
-
-[class="jogo"]{
-    background-color: red;
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-} 
 [class="MenuButton"]{
     height: 120px;
     width: 120px;
@@ -63,6 +47,7 @@ body{
     background-color: transparent;
     border: 0;
     padding: 20px;
+   
 }
 [id="perfil"]{
     display: none;
@@ -114,12 +99,8 @@ body{
         height: 70px;
         width: 70px;
     }
-    [class="jogo"]{
-        background-color: transparent;
-        width: 130px;
-        height: 10px;
-        border-radius: 20px;
-    }
+    
+    
     [id='3']{
         height: 100%;
         width: 100%;
@@ -127,7 +108,7 @@ body{
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content:space-around;
+        justify-content: space-around;
                
     }
    
@@ -159,10 +140,34 @@ a{display: flex; flex-direction: column; color: black;}
         background-color: yellow;
         font-weight: bold;
     }
+    
+.jogo{display: flex; flex-direction: column;}
+img{width: 200px; height: auto;}
+a{width: 200px;}
+/* Adicione estilos do carrossel aqui, se necessário */
+.carousel {
+            overflow: hidden;
+            white-space: nowrap;
+            height: 100%;
+            width: 100%;
+            background-color:rgb(83, 83, 83);
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-.imagens{border-radius: 20px; width: 100px;  height: 100px;}
+        }
 
+        .jogo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
 
+        .jogo img {
+            max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho da div */
+        }
 </style>
 </head>
 <body>
@@ -173,14 +178,6 @@ a{display: flex; flex-direction: column; color: black;}
 
             </button>
             
-           
-
-            <div id="search-bar">
-                <input type="text" id="search-input" placeholder="Pesquisar por nome do jogo">
-                <button id="search-button" class="button" onclick="highlightSearch()">
-                    Pesquisar
-                </button>
-            </div>
             <button class="button">
                 <a href="Informações.html"><img src="InfoIcon.png" class="MenuButton" alt="Info">Informações</a>
             </button>
@@ -188,6 +185,13 @@ a{display: flex; flex-direction: column; color: black;}
             <button class="button">
                 <a href="contato.html"><img src="ContatoIcon.png" class="MenuButton" alt="Contato">Contato</a>
             </button>
+
+            <div id="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar por nome do jogo">
+                <button id="search-button" class="button" onclick="highlightSearch()">
+                    Pesquisar
+                </button>
+            </div>
         
 
             <button class="button">
@@ -197,14 +201,16 @@ a{display: flex; flex-direction: column; color: black;}
     </div>
     <div id="corpo">
         
-        <div id="2">
-            <div class="jogo"> <a href="flappybird.html"><img src="flappybird.jpeg" class="imagens"> Flappy bird</a></div>
-            <div class="jogo"><a href="Jogo da Velha2.0.html"><img src="tictac.png" class="imagens">Jogo da velha</a></div>
-            <div class="jogo"><a href="Corridassauro.html"><img src="dino.png" class="imagens">Jogo do dino</a></div>
-            <div class="jogo"><a href="JogoDaAdivinhação.html"><img src="número.png" class="imagens">Adivinhação</a></div>
-            <div class="jogo"><a href="Snake2.0.html"><img src="snake.png" class="imagens">Snake</a></div>
-        </div>
+        <div id="carousel" class="carousel1">
+            <div>    
+                <div class="jogo"> <a href="flappybird.html"><img src="flappybird.jpeg" alt="">flappy bird</a></div>
+                <div class="jogo"><a href="JogoDaAdivinhação.html"><img src="número.png" alt="">Adivinhação</a></div>
+                <div class="jogo"><a href="Snake2.0.html"><img src="snake.png" alt=""> Snake</a></div>
+                <div class="jogo"><a href="Jogo da Velha2.0.html"><img src="tictac.png" alt=""> Jogo da velha</a></div>
+                <div class="jogo"> <a href="Corridassauro.html"><img src="dino.png" alt="">Jogo do dino</a></div>
         
+            </div>
+        </div>    
     <script>
         function highlightSearch() {
         var searchBar = document.getElementById('search-input');
@@ -246,7 +252,26 @@ a{display: flex; flex-direction: column; color: black;}
             element.innerHTML = originalHTML;
         }
     }
-  
+
+    const jogoItems = document.querySelectorAll('.jogo');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            jogoItems.forEach((item, i) => {
+                item.style.opacity = i === index ? '1' : '0';
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % jogoItems.length;
+            showSlide(currentIndex);
+        }
+
+        // Intervalo automático (opcional)
+        setInterval(nextSlide, 3000); // Troca de slide a cada 3 segundos
+
+        // Exibição inicial
+        showSlide(currentIndex);
     </script>
     
 </body>
